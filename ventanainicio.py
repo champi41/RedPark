@@ -32,6 +32,8 @@ class Ui_VentanaPrincipal(object):
 "color: rgb(255, 255, 255);\n"
 "border-radius: 20px;")
         self.btnTicket.setObjectName("btnTicket")
+        self.btnTicket.clicked.connect(self.abrir_ventana_tiempo)
+        
         VentanaPrincipal.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=VentanaPrincipal)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 640, 22))
@@ -56,6 +58,13 @@ class Ui_VentanaPrincipal(object):
         self.menuMas.setTitle(_translate("VentanaPrincipal", "Mas"))
         self.actionTotal_de_Tickets.setText(_translate("VentanaPrincipal", "Total de Tickets"))
 
+    def abrir_ventana_tiempo(self):
+        from ventanatiempo import Ui_VentanaTiempo
+        
+        self.ventana_tiempo = QtWidgets.QMainWindow()
+        ui = Ui_VentanaTiempo()
+        ui.setupTiempo(self.ventana_tiempo)
+        self.ventana_tiempo.show()
 
 if __name__ == "__main__":
     import sys
