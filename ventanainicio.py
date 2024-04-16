@@ -1,19 +1,20 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 
-
 class Ui_VentanaPrincipal(object):
+    
     def setupUi(self, VentanaPrincipal):
+        
         VentanaPrincipal.setObjectName("VentanaPrincipal")
         VentanaPrincipal.resize(640, 480)
         font = QtGui.QFont()
         font.setFamily("Lucida Console")
         font.setPointSize(22)
         VentanaPrincipal.setFont(font)
-        VentanaPrincipal.setStyleSheet("background-color: rgb(0, 0, 90);\n"
-"color: rgb(255, 255, 255);\n"
-"")
+        VentanaPrincipal.setStyleSheet("background-color: rgb(0, 0, 90);\n""color: rgb(255, 255, 255);\n""")
+        
         self.centralwidget = QtWidgets.QWidget(parent=VentanaPrincipal)
         self.centralwidget.setObjectName("centralwidget")
+        
         self.lblRedBank = QtWidgets.QLabel(parent=self.centralwidget)
         self.lblRedBank.setGeometry(QtCore.QRect(135, 80, 370, 120))
         font = QtGui.QFont()
@@ -22,6 +23,7 @@ class Ui_VentanaPrincipal(object):
         self.lblRedBank.setFont(font)
         self.lblRedBank.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.lblRedBank.setObjectName("lblRedBank")
+        
         self.btnTicket = QtWidgets.QPushButton(parent=self.centralwidget)
         self.btnTicket.setGeometry(QtCore.QRect(225, 240, 190, 60))
         font = QtGui.QFont()
@@ -32,7 +34,7 @@ class Ui_VentanaPrincipal(object):
 "color: rgb(255, 255, 255);\n"
 "border-radius: 20px;")
         self.btnTicket.setObjectName("btnTicket")
-        self.btnTicket.clicked.connect(self.abrir_ventana_tiempo)
+        self.btnTicket.clicked.connect(self.abrir_ventana_registro)
         
         VentanaPrincipal.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=VentanaPrincipal)
@@ -47,26 +49,21 @@ class Ui_VentanaPrincipal(object):
         self.menuMas.addAction(self.actionTotal_de_Tickets)
         self.menubar.addAction(self.menuMas.menuAction())
 
-        self.retranslateUi(VentanaPrincipal)
-        QtCore.QMetaObject.connectSlotsByName(VentanaPrincipal)
-
-    def retranslateUi(self, VentanaPrincipal):
-        _translate = QtCore.QCoreApplication.translate
-        VentanaPrincipal.setWindowTitle(_translate("VentanaPrincipal", "Inicio RedBank"))
-        self.lblRedBank.setText(_translate("VentanaPrincipal", "<html><head/><body><p><span style=\" font-size:72pt; font-style:italic; color:#ffffff;\">Red</span><span style=\" font-size:72pt; font-weight:700; color:#ff0004;\">Park</span></p></body></html>"))
-        self.btnTicket.setText(_translate("VentanaPrincipal", "Obtener Ticket"))
-        self.menuMas.setTitle(_translate("VentanaPrincipal", "Mas"))
-        self.actionTotal_de_Tickets.setText(_translate("VentanaPrincipal", "Total de Tickets"))
-
-    def abrir_ventana_tiempo(self):
-        from ventanatiempo import Ui_VentanaTiempo
+        self.lblRedBank.setText("<html><head/><body><p><span style=\" font-size:72pt; font-style:italic; color:#ffffff;\">Red</span><span style=\" font-size:72pt; font-weight:700; color:#ff0004;\">Park</span></p></body></html>")
+        self.btnTicket.setText("Obtener Ticket")
+        self.menuMas.setTitle("Mas")
+        self.actionTotal_de_Tickets.setText("Total de Tickets")  
+            
+    def abrir_ventana_registro(self):
         
-        self.ventana_tiempo = QtWidgets.QMainWindow()
-        ui = Ui_VentanaTiempo()
-        ui.setupTiempo(self.ventana_tiempo)
-        self.ventana_tiempo.show()
+        from ventanaregistro import Ui_registro
+        
+        self.ventana_registro = Ui_registro()
+        self.ventana_registro.setupRegistro(self.ventana_registro)
+        self.ventana_registro.show()
 
 if __name__ == "__main__":
+    
     import sys
     app = QtWidgets.QApplication(sys.argv)
     VentanaPrincipal = QtWidgets.QMainWindow()
