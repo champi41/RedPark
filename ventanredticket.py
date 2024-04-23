@@ -1,9 +1,9 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
+from ventanaduracion import boton
 
-
-class Ui_RedTicket(object):
+class Ui_RedTicket(QtWidgets.QDialog):
     
-    def setupUi(self, RedTicket):
+    def setupRedTicket(self, RedTicket):
         
         RedTicket.setObjectName("RedTicket")
         RedTicket.resize(640, 480)
@@ -52,7 +52,6 @@ class Ui_RedTicket(object):
         font.setFamily("Calibri")
         font.setPointSize(16)
         self.lblDuracionDatos.setFont(font)
-        self.lblDuracionDatos.setText("")
         self.lblDuracionDatos.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
         self.lblDuracionDatos.setObjectName("lblDuracionDatos")
         
@@ -62,7 +61,6 @@ class Ui_RedTicket(object):
         font.setFamily("Calibri")
         font.setPointSize(16)
         self.lblNombreDatos.setFont(font)
-        self.lblNombreDatos.setText("")
         self.lblNombreDatos.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
         self.lblNombreDatos.setObjectName("lblNombreDatos")
         
@@ -72,7 +70,6 @@ class Ui_RedTicket(object):
         font.setFamily("Calibri")
         font.setPointSize(16)
         self.lblPatenteDatos.setFont(font)
-        self.lblPatenteDatos.setText("")
         self.lblPatenteDatos.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
         self.lblPatenteDatos.setObjectName("lblPatenteDatos")
         
@@ -85,20 +82,50 @@ class Ui_RedTicket(object):
         self.lblAviso2.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.lblAviso2.setObjectName("lblAviso2")
 
-
-        RedTicket.setWindowTitle("Dialog")
+        RedTicket.setWindowTitle("RedTicket")
         self.lblRedTicket.setText("<html><head/><body><p>Red<span style=\" color:#ff0004;\">Ticket</span></p></body></html>")
         self.lblDuracionTicket.setText("Duración:")
         self.lblNombreTicket.setText("Nombre:")
         self.lblPatenteTicket.setText("Patente:")
         self.lblAviso2.setText("Puede cerrar las ventanas")
 
-
+        xd = boton
+        print('esto vale xd: ', xd)
+        if boton == 15:
+            self.lblDuracionDatos.setText("15 minutos")
+            self.lblNombreDatos.setText("")
+            self.lblPatenteDatos.setText("")
+        
+        elif boton == 30:
+            
+            self.lblDuracionDatos.setText("30 minutos")
+            self.lblNombreDatos.setText("")
+            self.lblPatenteDatos.setText("")
+            
+        elif boton == 1:
+            
+            self.lblDuracionDatos.setText("1 hora")
+            self.lblNombreDatos.setText("")
+            self.lblPatenteDatos.setText("")
+            
+        elif boton == 2:
+            
+            self.lblDuracionDatos.setText("2 horas")
+            self.lblNombreDatos.setText("")
+            self.lblPatenteDatos.setText("")
+        
+        elif boton == 3:
+            
+            self.lblDuracionDatos.setText("3 horas")
+            self.lblNombreDatos.setText("")
+            self.lblPatenteDatos.setText("")
+        
+        
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    RedTicket = QtWidgets.QDialog()
+    RedTicket = Ui_RedTicket()
     ui = Ui_RedTicket()
-    ui.setupUi(RedTicket)
+    ui.setupRedTicket(RedTicket)
     RedTicket.show()
     sys.exit(app.exec())
