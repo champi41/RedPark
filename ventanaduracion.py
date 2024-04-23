@@ -1,5 +1,6 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 
+boton = None
 class Ui_duracion(QtWidgets.QDialog):
         
     def setupDuracion(self, tiempo):
@@ -21,6 +22,7 @@ class Ui_duracion(QtWidgets.QDialog):
 "color: rgb(255, 255, 255);\n"
 "border-radius: 20px;")
         self.hora1btn.setObjectName("hora1btn")
+        self.hora1btn.clicked.connect(self.abrir_ticket)
         
         self.min30btn = QtWidgets.QPushButton(parent=tiempo)
         self.min30btn.setGeometry(QtCore.QRect(170, 160, 80, 133))
@@ -34,6 +36,7 @@ class Ui_duracion(QtWidgets.QDialog):
 "color: rgb(255, 255, 255);\n"
 "border-radius: 20px;")
         self.min30btn.setObjectName("min30btn")
+        self.min30btn.clicked.connect(self.abrir_ticket)
         
         self.hora3btn = QtWidgets.QPushButton(parent=tiempo)
         self.hora3btn.setGeometry(QtCore.QRect(500, 160, 80, 133))
@@ -47,15 +50,16 @@ class Ui_duracion(QtWidgets.QDialog):
 "color: rgb(255, 255, 255);\n"
 "border-radius: 20px;")
         self.hora3btn.setObjectName("hora3btn")
+        self.hora3btn.clicked.connect(self.abrir_ticket)
         
-        self.label = QtWidgets.QLabel(parent=tiempo)
-        self.label.setGeometry(QtCore.QRect(10, 60, 620, 50))
+        self.lblSelecTiemp = QtWidgets.QLabel(parent=tiempo)
+        self.lblSelecTiemp.setGeometry(QtCore.QRect(10, 60, 620, 50))
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(28)
-        self.label.setFont(font)
-        self.label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.label.setObjectName("label")
+        self.lblSelecTiemp.setFont(font)
+        self.lblSelecTiemp.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.lblSelecTiemp.setObjectName("label")
         
         self.hora2btn = QtWidgets.QPushButton(parent=tiempo)
         self.hora2btn.setGeometry(QtCore.QRect(390, 160, 80, 133))
@@ -69,6 +73,7 @@ class Ui_duracion(QtWidgets.QDialog):
 "color: rgb(255, 255, 255);\n"
 "border-radius: 20px;")
         self.hora2btn.setObjectName("hora2btn")
+        self.hora2btn.clicked.connect(self.abrir_ticket)
         
         self.min15btn = QtWidgets.QPushButton(parent=tiempo)
         self.min15btn.setGeometry(QtCore.QRect(60, 160, 80, 133))
@@ -82,6 +87,7 @@ class Ui_duracion(QtWidgets.QDialog):
 "color: rgb(255, 255, 255);\n"
 "border-radius: 20px;")
         self.min15btn.setObjectName("min15btn")
+        self.min15btn.clicked.connect(self.abrir_ticket)
         
         self.lbl600 = QtWidgets.QLabel(parent=tiempo)
         self.lbl600.setGeometry(QtCore.QRect(60, 310, 80, 20))
@@ -141,7 +147,7 @@ class Ui_duracion(QtWidgets.QDialog):
         self.hora1btn.setText("1\n""Hora")
         self.min30btn.setText("30\n""Minutos")
         self.hora3btn.setText("3\n""Horas")
-        self.label.setText("Seleccione el tiempo")
+        self.lblSelecTiemp.setText("Seleccione el tiempo")
         self.hora2btn.setText("2\n""Horas")
         self.min15btn.setText("15\n""Minutos")
         self.lbl600.setText("$600")
@@ -151,7 +157,56 @@ class Ui_duracion(QtWidgets.QDialog):
         self.lbl3600.setText("$3600")
         self.lblAviso.setText("Si excede el tiempo que ingresó, se le cobrará $45 por cada minuto excedido.")
         
-          
+    
+    def abrir_ticket(self):
+            
+        global boton  
+        sender = self.sender()
+        
+        from ventanaredticket import Ui_RedTicket
+        
+        if sender == self.min15btn:
+                
+                boton = 15
+                self.ventana_redticket = Ui_RedTicket()
+                self.ventana_redticket.setupRedTicket(self.ventana_redticket)
+                self.ventana_redticket.show()
+                print(boton)
+                
+        elif sender == self.min30btn:
+                
+                boton = 30
+                self.ventana_redticket = Ui_RedTicket()
+                self.ventana_redticket.setupRedTicket(self.ventana_redticket)
+                self.ventana_redticket.show()
+                print(boton)
+                
+        elif sender == self.hora1btn:
+                
+                boton = 1
+                self.ventana_redticket = Ui_RedTicket()
+                self.ventana_redticket.setupRedTicket(self.ventana_redticket)
+                self.ventana_redticket.show()
+                print(boton)
+                
+        elif sender == self.hora2btn:
+                
+                boton = 2
+                self.ventana_redticket = Ui_RedTicket()
+                self.ventana_redticket.setupRedTicket(self.ventana_redticket)
+                self.ventana_redticket.show()
+                print(boton)
+                
+        elif sender == self.hora3btn:
+                
+                boton = 3
+                self.ventana_redticket = Ui_RedTicket()
+                self.ventana_redticket.setupRedTicket(self.ventana_redticket)
+                self.ventana_redticket.show()     
+                print(boton)
+
+
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
