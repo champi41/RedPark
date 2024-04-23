@@ -21,6 +21,7 @@ class Ui_duracion(QtWidgets.QDialog):
 "color: rgb(255, 255, 255);\n"
 "border-radius: 20px;")
         self.hora1btn.setObjectName("hora1btn")
+        
         self.min30btn = QtWidgets.QPushButton(parent=tiempo)
         self.min30btn.setGeometry(QtCore.QRect(170, 160, 80, 133))
         font = QtGui.QFont()
@@ -33,6 +34,7 @@ class Ui_duracion(QtWidgets.QDialog):
 "color: rgb(255, 255, 255);\n"
 "border-radius: 20px;")
         self.min30btn.setObjectName("min30btn")
+        
         self.hora3btn = QtWidgets.QPushButton(parent=tiempo)
         self.hora3btn.setGeometry(QtCore.QRect(500, 160, 80, 133))
         font = QtGui.QFont()
@@ -45,6 +47,7 @@ class Ui_duracion(QtWidgets.QDialog):
 "color: rgb(255, 255, 255);\n"
 "border-radius: 20px;")
         self.hora3btn.setObjectName("hora3btn")
+        
         self.label = QtWidgets.QLabel(parent=tiempo)
         self.label.setGeometry(QtCore.QRect(10, 60, 620, 50))
         font = QtGui.QFont()
@@ -53,6 +56,7 @@ class Ui_duracion(QtWidgets.QDialog):
         self.label.setFont(font)
         self.label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label.setObjectName("label")
+        
         self.hora2btn = QtWidgets.QPushButton(parent=tiempo)
         self.hora2btn.setGeometry(QtCore.QRect(390, 160, 80, 133))
         font = QtGui.QFont()
@@ -65,6 +69,7 @@ class Ui_duracion(QtWidgets.QDialog):
 "color: rgb(255, 255, 255);\n"
 "border-radius: 20px;")
         self.hora2btn.setObjectName("hora2btn")
+        
         self.min15btn = QtWidgets.QPushButton(parent=tiempo)
         self.min15btn.setGeometry(QtCore.QRect(60, 160, 80, 133))
         font = QtGui.QFont()
@@ -86,6 +91,7 @@ class Ui_duracion(QtWidgets.QDialog):
         self.lbl600.setFont(font)
         self.lbl600.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.lbl600.setObjectName("lbl600")
+        
         self.lbl1050 = QtWidgets.QLabel(parent=tiempo)
         self.lbl1050.setGeometry(QtCore.QRect(170, 310, 80, 20))
         font = QtGui.QFont()
@@ -94,6 +100,7 @@ class Ui_duracion(QtWidgets.QDialog):
         self.lbl1050.setFont(font)
         self.lbl1050.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.lbl1050.setObjectName("lbl1050")
+        
         self.lbl1800 = QtWidgets.QLabel(parent=tiempo)
         self.lbl1800.setGeometry(QtCore.QRect(280, 310, 80, 20))
         font = QtGui.QFont()
@@ -102,6 +109,7 @@ class Ui_duracion(QtWidgets.QDialog):
         self.lbl1800.setFont(font)
         self.lbl1800.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.lbl1800.setObjectName("lbl1800")
+        
         self.lbl3000 = QtWidgets.QLabel(parent=tiempo)
         self.lbl3000.setGeometry(QtCore.QRect(390, 310, 80, 20))
         font = QtGui.QFont()
@@ -110,6 +118,7 @@ class Ui_duracion(QtWidgets.QDialog):
         self.lbl3000.setFont(font)
         self.lbl3000.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.lbl3000.setObjectName("lbl3000")
+        
         self.lbl3600 = QtWidgets.QLabel(parent=tiempo)
         self.lbl3600.setGeometry(QtCore.QRect(500, 310, 80, 20))
         font = QtGui.QFont()
@@ -118,6 +127,7 @@ class Ui_duracion(QtWidgets.QDialog):
         self.lbl3600.setFont(font)
         self.lbl3600.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.lbl3600.setObjectName("lbl3600")
+        
         self.lblAviso = QtWidgets.QLabel(parent=tiempo)
         self.lblAviso.setGeometry(QtCore.QRect(58, 360, 521, 20))
         font = QtGui.QFont()
@@ -141,6 +151,7 @@ class Ui_duracion(QtWidgets.QDialog):
         self.lbl3600.setText("$3600")
         self.lblAviso.setText("Si excede el tiempo que ingresó, se le cobrará $45 por cada minuto excedido.")
         
+          
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
