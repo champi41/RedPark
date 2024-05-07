@@ -20,6 +20,7 @@ class ticket:
         ticket_aux = {
             "Rut": ticket.rut,
             "Nombre": ticket.nombre,
+            "Patente": ticket.patenteVehiculo,
             "tiempo": ticket.duracion,
             "valor": ticket.precio,
             #"lugar": ticket.lugar porque la matriz aun no esta hecha
