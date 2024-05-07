@@ -29,3 +29,5 @@ class ticket:
             json_file.write(ticket_json)
     }
     #preguntar al profe si en la funcion open es mejor el "w" o el "a" o el "r" no se cual estaria mejor
+#preguntar igual una forma de que las boletas vallan guardandose con distintos numeros o si el mismo explorador de archivos va creando
+#distintos numeros en los ticket(como cuando hay un mismo archivo el ordenador hace archivo archivo(2)
