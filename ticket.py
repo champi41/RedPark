@@ -11,16 +11,16 @@ class ticket:
     def __init__(self, nombreConductor, patenteVehiculo, duracion, precio, rut):
         
         self.nombreConductor = nombreConductor
+        self.rut = rut
         self.patenteVehiculo = patenteVehiculo
         self.duracion = duracion
         self.precio = precio
-        self.rut = rut
         #aca tendria que ir el lugar en la amtriz que falta hacer aun
         
     def Crear_Boleta(self):
         ticket_aux = {
-            "Rut": self.rut,
             "Nombre": self.nombreConductor,
+            "Rut": self.rut,
             "Patente": self.patenteVehiculo,
             "tiempo": self.duracion,
             "valor": self.precio,
