@@ -194,9 +194,8 @@ class Registro(QtWidgets.QWidget):
 
     def validarEntradas(self):
 
-        nombre_valido = bool(self.inptNombre.text())
-        patente_valida = bool(self.inptPatente.text())
-        self.btnIngresar.setEnabled(nombre_valido and patente_valida)
+        nombre_valido = bool(self.inptNombre.text().strip())
+        self.btnIngresar.setEnabled(nombre_valido)
 
 class Duracion(QtWidgets.QWidget):
 
