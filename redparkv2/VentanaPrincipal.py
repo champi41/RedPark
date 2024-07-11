@@ -12,7 +12,7 @@ class Ui_VentanaPrincipal(QtWidgets.QMainWindow):
 
     def __init__(self):
         super().__init__()
-
+        self.selected_spot = None
         self.setObjectName("VentanaPrincipal")
         self.resize(640, 480)
         font = QtGui.QFont()
@@ -97,6 +97,9 @@ class Ui_VentanaPrincipal(QtWidgets.QMainWindow):
 
     def atrasMatriz(self):
         self.matriz.hide()
+        if self.selected_spot:
+            self.matriz.habilitar_checkbox(self.selected_spot)
+        self.selected_spot = None
         self.registro.show()
 
     def showDuracion(self):
@@ -106,6 +109,9 @@ class Ui_VentanaPrincipal(QtWidgets.QMainWindow):
         
     def atrasDuracion(self):
         self.redticket.hide()
+        if self.selected_spot:
+            self.matriz.habilitar_checkbox(self.selected_spot)
+        self.selected_spot = None
         self.duracion.show()
         
     def showRedTicket(self,boton, nombre="", patente=""):
@@ -379,8 +385,8 @@ class Duracion(QtWidgets.QWidget):
         self.btnAtras.setStyleSheet("border-radius: 20px;\n""background-color: rgb(255, 0, 4);\n""")
         self.btnAtras.setObjectName("btnAtras")
         self.btnAtras.setText("Atrás")
+        self.btnAtras.clicked.connect(self.parent().atrasDuracion)
         self.btnAtras.clicked.connect(self.parent().mostrarMatriz)
-        
         self.lblAviso = QtWidgets.QLabel(parent=self)
         self.lblAviso.setGeometry(QtCore.QRect(58, 360, 521, 20))
         font = QtGui.QFont()
@@ -610,7 +616,7 @@ class Matriz(QtWidgets.QWidget):
         
         for checkbox in checkboxes:
             self.grupo_botones.addButton(checkbox)
-            self.checkboxes[checkbox.objectName()] = checkbox  # Agregar al diccionario
+            self.checkboxes[checkbox.objectName()] = checkbox  
         
     def confirmar_checkbox(self):
         for checkbox in self.checkboxes.values():
@@ -627,6 +633,9 @@ class Matriz(QtWidgets.QWidget):
                       self.A5, self.B5, self.C5, self.D5, self.E5]
         for checkbox in checkboxes:
             checkbox.setChecked(False)
+    def habilitar_checkbox(self, checkbox_name):
+        if checkbox_name in self.checkboxes:
+            self.checkboxes[checkbox_name].setEnabled(True)
 class RedTicket(QtWidgets.QWidget):
     
     def __init__(self, parent):
